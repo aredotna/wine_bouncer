@@ -26,43 +26,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - ruby-version: 2.7
-            grape-version: '~> 1.5'
-            rails-version: '~> 5.2'
-          - ruby-version: 2.7
-            grape-version: '~> 1.5'
-            rails-version: '~> 6.1'
-          - ruby-version: 2.7
-            grape-version: '~> 1.6'
-            rails-version: '~> 5.2'
-          - ruby-version: 2.7
-            grape-version: '~> 1.6'
-            rails-version: '~> 6.1'
-          - ruby-version: 3.0
-            grape-version: '~> 1.5'
-            rails-version: '~> 5.2'
-          - ruby-version: 3.0
-            grape-version: '~> 1.5'
-            rails-version: '~> 6.1'
-          - ruby-version: 3.0
-            grape-version: '~> 1.6'
-            rails-version: '~> 5.2'
-          - ruby-version: 3.0
-            grape-version: '~> 1.6'
-            rails-version: '~> 6.1'
-          - ruby-version: 3.1
-            grape-version: '~> 1.5'
-            rails-version: '~> 5.2'
-          - ruby-version: 3.1
-            grape-version: '~> 1.5'
-            rails-version: '~> 6.1'
-          - ruby-version: 3.1
-            grape-version: '~> 1.6'
-            rails-version: '~> 5.2'
-          - ruby-version: 3.1
-            grape-version: '~> 1.6'
-            rails-version: '~> 6.1'
+        ruby-version: ['2.7', '3.0', '3.1', 'head']
     steps:
     - name: Check out branch
       uses: actions/checkout@v2
@@ -70,10 +34,8 @@ jobs:
       uses: ruby/setup-ruby@v1
       env:
         RAILS_ENV: test
-        GRAPE: ${{ matrix.grape-version }}
-        RAILS: ${{ matrix.rails-version }}
       with:
         ruby-version: ${{ matrix.ruby-version }}
-        # bundler-cache: true
+        bundler-cache: true
     - name: Run rspec rest of the suite
-      run: rspec
+      run: bundle exec rspec
