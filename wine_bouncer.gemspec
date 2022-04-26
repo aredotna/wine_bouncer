@@ -25,8 +25,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'appraisal'
   spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'database_cleaner', '~> 1.99'
-  spec.add_development_dependency 'factory_bot', '~> 4.11'
+  spec.add_development_dependency 'database_cleaner', '~> 2.0'
+  spec.add_development_dependency 'factory_bot', '~> 6.2'
   spec.add_development_dependency 'generator_spec', '~> 0.9.0'
   spec.add_development_dependency 'rails'
   spec.add_development_dependency 'railties'

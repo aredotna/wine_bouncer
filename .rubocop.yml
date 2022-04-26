@@ -9,6 +9,7 @@ AllCops:
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
     - 'spec/dummy/**/*'
+    - 'gemfiles/*'
 
   NewCops: enable
   UseCache: true
